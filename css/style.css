@@ -386,11 +386,11 @@ button {
   width: 100px;
 }
 
-.footer_wrapper .social-icon li {
+.banner_wrapper .social-icon li {
   margin: 6px;
 }
 
-.footer_wrapper .social-icon a {
+.banner_wrapper .social-icon a {
   padding-top: 2px;
   width: 35px;
   height: 35px;
@@ -405,7 +405,7 @@ button {
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-.footer_wrapper .social-icon a:hover {
+.banner_wrapper .social-icon a:hover {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
   color: var(--text-white);
