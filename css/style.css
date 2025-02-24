@@ -175,9 +175,13 @@ button {
   transition: all 0.2s linear;
 }
 
-.header_wrapper .navbar-brand img {
+.header_wrapper .navbar-brand {
   max-width: 120px;
   height: auto;
+}
+
+.header_wrapper .navbar-brand h3 span {
+  color: var(--primary-color);
 }
 
 .header_wrapper .navbar-toggler {
@@ -243,12 +247,13 @@ button {
   width: 100%;
   height: auto;
   min-height: 650px;
-  background-image: url("../images/bg-image.jpg");
+  background-image: url("../images/bg-img.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
   padding: 200px 0 100px 0;
+  position: relative;
 }
 
 /* 4 About */
@@ -391,7 +396,7 @@ button {
 }
 
 .banner_wrapper .social-icon a {
-  padding-top: 2px;
+  padding-top: 3px;
   width: 35px;
   height: 35px;
   line-height: 30px;
