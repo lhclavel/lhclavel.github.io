@@ -404,7 +404,7 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("../images/bg-services.gif");
+  background-image: url("../images/service/bg-services.gif");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -499,4 +499,12 @@ button {
 
 #goldquill span {
   color: goldenrod;
+}
+
+#late {
+  color: #fd4766;
+}
+
+#awesome {
+  color: #fd4766;
 }
