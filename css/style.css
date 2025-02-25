@@ -251,9 +251,18 @@ button {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
   padding: 200px 0 100px 0;
   position: relative;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.about_wrapper img {
+  width: 100%; /* Makes the image responsive */
+  max-width: 150px; /* Adjust this value to your preference */
+  height: auto; /* Maintains aspect ratio */
+  display: block;
+  margin: 0 auto; /* Centers the image */
 }
 
 /* 4 About */

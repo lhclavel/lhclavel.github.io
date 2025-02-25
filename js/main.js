@@ -6,6 +6,15 @@ window.onscroll = function () {
   } else {
     nav.classList.remove("header-scrolled");
   }
+
+  // Background Fade Effect on Scroll
+  let scrollPosition = window.scrollY;
+  let banner = document.querySelector(".banner_wrapper");
+  let fadeStart = 100;
+  let fadeEnd = 400;
+
+  let opacity = 1 - (scrollPosition - fadeStart) / (fadeEnd - fadeStart);
+  banner.style.opacity = Math.max(opacity, 0); //
 };
 
 // nav hide
