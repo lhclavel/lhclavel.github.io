@@ -366,8 +366,18 @@ button {
   color: var(--text-gray);
 }
 
+.about_wrapper .tab-pane li p {
+  font-weight: 500;
+  display: block;
+  color: var(--text-gray);
+}
+
 .Me {
   color: #fd4766;
+}
+
+.program {
+  color: var(--text-gray);
 }
 
 /* 4 Services */
