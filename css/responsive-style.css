@@ -128,3 +128,17 @@ body {
   align-items: center; /* Centers content vertically */
   justify-content: center; /* Centers content horizontally */
 }
+
+.contact_wrapper {
+  height: 100vh; /* Full viewport height */
+  width: 100%; /* Full width */
+  display: flex;
+  align-items: center; /* Centers content vertically */
+  justify-content: center; /* Centers content horizontally */
+}
+
+@media (max-width: 767px) {
+  .services_wrapper img {
+    max-width: 200px; /* Adjust the size for mobile */
+  }
+}
