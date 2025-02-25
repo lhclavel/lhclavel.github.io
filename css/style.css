@@ -241,10 +241,10 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px; /* Adds spacing between icons */
+  gap: 15px;
   padding: 0;
   list-style: none;
-  width: 100%; /* Ensure it takes full width */
+  width: 100%;
 }
 
 .banner_wrapper .social-icon a {
@@ -300,11 +300,11 @@ button {
 }
 
 .about_wrapper img {
-  width: 100%; /* Ensures responsiveness */
-  max-width: 500px; /* Bigger size on desktop */
-  height: auto; /* Maintains aspect ratio */
+  width: 100%;
+  max-width: 500px;
+  height: auto;
   display: block;
-  margin: 0 auto; /* Centers the image */
+  margin: 0 auto;
 }
 
 .about_wrapper .single-progress {
@@ -380,7 +380,7 @@ button {
   position: relative;
   transition: opacity 0.5s ease-in-out;
   padding: 200px 0 100px 0;
-  background: none; /* Remove background-image here */
+  background: none;
 }
 
 .services_wrapper::before {
@@ -395,7 +395,7 @@ button {
   background-position: center center;
   background-size: cover;
   background-attachment: scroll;
-  opacity: 0.2; /* Adjust opacity here */
+  opacity: 0.2;
   z-index: -1;
 }
 .services_wrapper .container {
@@ -416,23 +416,34 @@ button {
 }
 
 /* 5 Portfolio */
+.portfolio_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: stretch;
+  overflow: hidden;
+  width: 100%;
+}
+
 .portfolio_wrapper .card {
-  width: 100%; /* Ensures full width on small screens */
-  height: auto; /* Adjust height dynamically */
-  min-height: 300px; /* Slightly reduced for better mobile fit */
+  width: 100%;
+  height: auto;
+  min-height: 300px;
   overflow: hidden;
   border: 1px solid var(--bg-white);
   cursor: pointer;
   box-shadow: 0 0 16px 4px var(--bg-dark-blue);
   display: flex;
-  flex-direction: column; /* Ensures content stacks properly */
+  flex-direction: column;
+  position: relative;
 }
 
 .portfolio_wrapper .card span {
   transition: background-position 4s ease-in-out;
   width: 100%;
   height: 100%;
-  background-position: top center;
+  background-position: center;
   background-size: cover;
 }
 
@@ -444,7 +455,7 @@ button {
 /* Responsive Design */
 @media (max-width: 768px) {
   .portfolio_wrapper .card {
-    min-height: 250px; /* Reduce size on smaller screens */
+    min-height: 250px;
     box-shadow: 0 0 8px 2px var(--bg-dark-blue);
   }
 }
@@ -508,5 +519,9 @@ button {
 }
 
 #folio {
+  color: var(--primary-color);
+}
+
+#me {
   color: var(--primary-color);
 }

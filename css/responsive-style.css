@@ -1,7 +1,8 @@
 @media (max-width: 991px) {
   /* custom css */
   section {
-    padding: 30px 0;
+    padding: 50px 0;
+    z-index: 1;
   }
 
   h2 {
@@ -121,24 +122,42 @@ body {
   justify-content: center; /* Centers content horizontally */
 }
 
+@media (max-width: 768px) {
+  .services_wrapper {
+    padding: 100px 20px 50px 20px; /* Adjust padding for smaller screens */
+  }
+
+  .services_wrapper .container {
+    margin-bottom: 30px;
+  }
+
+  .services_wrapper .row {
+    flex-direction: column; /* Stack items vertically */
+  }
+
+  .services_wrapper .card {
+    height: auto; /* Allow flexible height */
+    margin-bottom: 20px; /* Add spacing between cards */
+    text-align: center; /* Center text for better readability */
+  }
+
+  .services_wrapper .card-body {
+    padding: 20px;
+  }
+
+  .services_wrapper h2 {
+    font-size: 1.8rem; /* Adjust heading size */
+  }
+
+  .services_wrapper p {
+    font-size: 1rem; /* Adjust paragraph size */
+  }
+}
+
 .portfolio_wrapper {
   height: 100vh; /* Full viewport height */
   width: 100%; /* Full width */
   display: flex;
   align-items: center; /* Centers content vertically */
   justify-content: center; /* Centers content horizontally */
-}
-
-.contact_wrapper {
-  height: 100vh; /* Full viewport height */
-  width: 100%; /* Full width */
-  display: flex;
-  align-items: center; /* Centers content vertically */
-  justify-content: center; /* Centers content horizontally */
-}
-
-@media (max-width: 767px) {
-  .services_wrapper img {
-    max-width: 200px; /* Adjust the size for mobile */
-  }
 }
