@@ -71,6 +71,11 @@
     font-size: 13px;
   }
 
+  @media (max-width: 767px) {
+    .banner_wrapper img {
+      max-width: 200px; /* Adjust the size for mobile */
+    }
+  }
   /* portfolio */
   .portfolio_wrapper .card {
     min-height: 500px;
@@ -90,4 +95,20 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+/* Responsive Fix for Mobile */
+@media (max-width: 767px) {
+  .social-icon {
+    justify-content: center !important; /* Force centering on mobile */
+  }
+
+  .social-icon li a {
+    padding-left: 2px;
+  }
+
+  .col-lg-4 {
+    display: flex;
+    justify-content: center !important;
+  }
 }
