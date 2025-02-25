@@ -492,3 +492,11 @@ button {
 .footer_wrapper .copyright-text a {
   color: var(--primary-color);
 }
+
+#orgmeup span {
+  color: #fd4766;
+}
+
+#goldquill span {
+  color: goldenrod;
+}
