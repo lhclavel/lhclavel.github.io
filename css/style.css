@@ -369,13 +369,9 @@ button {
 /* 4 Certifications */
 .certification_wrapper {
   width: 100%;
-  height: auto;
   min-height: 650px;
-  background-image: url("../images/cert/bg-certification.gif");
+  background-color: var(--bg-dark-blue);
   background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: scroll;
   position: relative;
   text-align: center;
   display: flex;
@@ -387,6 +383,17 @@ button {
 
 .certification_wrapper .container {
   max-width: 1100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.certification_wrapper h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: white;
 }
 
 .certification_wrapper img {
@@ -401,13 +408,6 @@ button {
   transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
-.certification_wrapper h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 40px;
-  color: white;
-}
-
 .certification_wrapper::before {
   content: "";
   position: absolute;
@@ -415,7 +415,7 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Change 0.4 to control transparency */
+  opacity: 0.2;
   z-index: -1;
 }
 
