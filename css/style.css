@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   /* Background Color */
   --primary-color: #fd4766;
@@ -369,43 +373,43 @@ button {
 /* 4 Certifications */
 .certification_wrapper {
   width: 100%;
-  min-height: 650px;
+  min-height: 100vh;
   background-color: var(--bg-dark-blue);
-  background-repeat: no-repeat;
-  position: relative;
-  text-align: center;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
   justify-content: center;
   padding: 50px 20px;
+  align-items: center;
+  position: relative;
 }
 
 .certification_wrapper .container {
-  max-width: 1100px;
-  display: flex;
+  max-width: 1200px;
   flex-wrap: wrap;
   justify-content: center;
+  display: flex;
   gap: 20px;
 }
 
 .certification_wrapper h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 40px;
-  color: white;
+  color: var(--text-white);
+}
+
+.certification_wrapper h2 span {
+  color: var(--primary-color);
 }
 
 .certification_wrapper img {
   width: 100%; /* Makes sure the image is responsive */
-  max-width: 350px; /* Limits how large the image can get */
+  max-width: 300px;
   height: auto; /* Maintains aspect ratio */
   display: block; /* Removes extra spacing */
-  margin: 0 auto; /* Centers the image */
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 8px;
+  margin: 0 auto;
   box-shadow: 0 4px 8px var(--secondary-color); /* Add a subtle shadow */
-  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out,
+    opacity 0.3s ease;
+  cursor: pointer;
 }
 
 .certification_wrapper::before {
@@ -421,7 +425,8 @@ button {
 
 .certification_wrapper img:hover {
   box-shadow: 0px 2px 70px 0px rgb(253 71 102 / 5%);
-  transform: translateY(-5px);
+  transform: scale(2.2); /* Zoom effect */
+  opacity: 1; /* Slight transparency */
 }
 
 /* 5 Portfolio */
@@ -470,6 +475,9 @@ button {
 }
 
 /* 6 Contact */
+.contact_wrapper {
+  background-color: var(--bg-dark-blue);
+}
 .contact_wrapper .form-control,
 .contact_wrapper textarea {
   background-color: transparent;
@@ -495,7 +503,7 @@ button {
 }
 /* 7 footer */
 .footer_wrapper {
-  background-color: var(--bg-dark-blue);
+  background-color: var(--secondary-color);
   padding: 20px 0;
   position: relative;
 }

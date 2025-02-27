@@ -25,3 +25,23 @@ navBar.forEach(function (a) {
     navCollapse.classList.remove("show");
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  let images = document.querySelectorAll(".certification_wrapper img");
+
+  let maxWidth = 0;
+  let maxHeight = 0;
+
+  images.forEach((img) => {
+    img.onload = function () {
+      if (img.naturalWidth > maxWidth) maxWidth = img.naturalWidth;
+      if (img.naturalHeight > maxHeight) maxHeight = img.naturalHeight;
+
+      // Apply same dimensions to all images
+      images.forEach((image) => {
+        image.style.width = maxWidth + "px";
+        image.style.height = maxHeight + "px";
+      });
+    };
+  });
+});
