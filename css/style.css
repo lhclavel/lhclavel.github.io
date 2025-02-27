@@ -366,51 +366,60 @@ button {
   color: var(--text-gray);
 }
 
-/* 4 Services */
-.services_wrapper {
+/* 4 Certifications */
+.certification_wrapper {
   width: 100%;
   height: auto;
   min-height: 650px;
-  background-image: url("../images/bg-services.gif");
+  background-image: url("../images/cert/bg-certification.gif");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   background-attachment: scroll;
-  padding: 200px 0 100px 0;
   position: relative;
-  transition: opacity 0.5s ease-in-out;
-  padding: 200px 0 100px 0;
-  background: none;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 50px 20px;
 }
 
-.services_wrapper::before {
+.certification_wrapper .container {
+  max-width: 1100px;
+}
+
+.certification_wrapper img {
+  width: 100%; /* Makes sure the image is responsive */
+  max-width: 350px; /* Limits how large the image can get */
+  height: auto; /* Maintains aspect ratio */
+  display: block; /* Removes extra spacing */
+  margin: 0 auto; /* Centers the image */
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px var(--secondary-color); /* Add a subtle shadow */
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.certification_wrapper h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: white;
+}
+
+.certification_wrapper::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("../images/service/bg-services.gif");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: scroll;
-  opacity: 0.2;
+  background: rgba(0, 0, 0, 0.6); /* Change 0.4 to control transparency */
   z-index: -1;
 }
-.services_wrapper .container {
-  margin-bottom: 50px;
-}
-.services_wrapper .card {
-  width: 100%;
-  height: 250px;
-  background-color: var(--bg-dark-blue);
-  cursor: pointer;
-  transition: transform 0.65s cubic-bezier(0.05, 0.2, 0.1, 1);
-  box-shadow: 0.65s cubic-bezier(0.05, 0.2, 0.1, 1);
-}
 
-.services_wrapper .card:hover {
+.certification_wrapper img:hover {
   box-shadow: 0px 2px 70px 0px rgb(253 71 102 / 5%);
   transform: translateY(-5px);
 }
@@ -488,6 +497,7 @@ button {
 .footer_wrapper {
   background-color: var(--bg-dark-blue);
   padding: 20px 0;
+  position: relative;
 }
 
 .footer_wrapper .footer-logo img {
@@ -500,6 +510,44 @@ button {
 }
 .footer_wrapper .copyright-text a {
   color: var(--primary-color);
+}
+
+.footer-iconTop a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem;
+  background: var(--primary-color);
+  border: 0.2rem solid var(--primary-color);
+  border-radius: 0.6rem;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.footer-iconTop a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var();
+  z-index: -1;
+  transition: 0.5s;
+}
+
+.footer-iconTop a:hover::before {
+  width: 100%;
+}
+
+.footer-iconTop a i {
+  font-size: 2.4rem;
+  color: var(--bg-dark-blue);
+  transition: 0.5s;
+}
+
+.footer-iconTop a:hover i {
+  color: var(--bg-white);
 }
 
 #orgmeup span {
