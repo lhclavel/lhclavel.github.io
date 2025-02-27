@@ -139,6 +139,18 @@ body {
     max-width: 300px;
     height: 180px; /* Slightly smaller height for better scaling */
   }
+
+  .portfolio_wrapper {
+    padding: 30px 10px;
+  }
+
+  .portfolio_wrapper h3 {
+    font-size: 1.5rem;
+  }
+
+  .portfolio_wrapper img {
+    max-width: 300px;
+  }
 }
 
 .portfolio_wrapper {
