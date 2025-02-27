@@ -152,7 +152,7 @@ button {
 
 /* 2 Navbar */
 .header_wrapper .navbar {
-  padding: 15px 0;
+  padding: 10px 0;
   -webkit-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
@@ -381,6 +381,9 @@ button {
   padding: 50px 20px;
   align-items: center;
   position: relative;
+  flex-wrap: wrap;
+  gap: 20px;
+  position: relative;
 }
 
 .certification_wrapper .container {
@@ -401,7 +404,7 @@ button {
 
 .certification_wrapper img {
   width: 100%; /* Makes sure the image is responsive */
-  max-width: 300px;
+  max-width: 250px;
   height: auto; /* Maintains aspect ratio */
   display: block; /* Removes extra spacing */
   object-fit: cover;
@@ -411,6 +414,8 @@ button {
   transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out,
     opacity 0.3s ease;
   cursor: pointer;
+  position: relative;
+  z-index: 1;
 }
 
 .certification_wrapper::before {
@@ -426,8 +431,9 @@ button {
 
 .certification_wrapper img:hover {
   box-shadow: 0px 2px 70px 0px rgb(253 71 102 / 5%);
-  transform: scale(1.8); /* Zoom effect */
+  transform: scale(1.2); /* Zoom effect */
   opacity: 1; /* Slight transparency */
+  z-index: 10;
 }
 
 /* 5 Portfolio */
@@ -479,11 +485,15 @@ button {
   height: auto;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative; /* Keeps it in place */
+  z-index: 1;
 }
 
 .portfolio_wrapper img:hover {
-  transform: scale(1.5);
+  transform: scale(1.1);
+  z-index: 10; /* Makes sure hovered image is on top */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5); /* Emphasize hover */
 }
 /* 6 Contact */
 .contact_wrapper {
@@ -534,7 +544,7 @@ button {
 /* 7 footer */
 .footer_wrapper {
   background-color: var(--secondary-color);
-  padding: 20px 0;
+  padding: 10px 0;
   position: relative;
 }
 
@@ -546,11 +556,11 @@ button {
 }
 
 .footer_wrapper .footer-logo img {
-  width: 100%; /* Makes it responsive */
-  max-width: 150px; /* Limits size */
-  height: auto; /* Maintains aspect ratio */
-  display: block; /* Removes extra spacing issues */
-  margin: 0 auto; /* Centers the image */
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .footer_wrapper .copyright-text p {
