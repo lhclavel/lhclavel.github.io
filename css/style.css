@@ -75,7 +75,9 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 section {
-  padding: 50px 0;
+  width: 100%;
+  padding: 60px 0; /* spacing above/below */
+  position: relative;
 }
 
 .main-btn {
@@ -292,13 +294,13 @@ button {
 /* 4 About */
 .about_wrapper {
   display: flex;
-  align-items: flex-start; /* Aligns content to the top */
-  justify-content: space-between; /* Ensures even spacing */
-  flex-wrap: wrap; /* Prevents overlapping */
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .about_wrapper .row {
-  align-items: flex-start !important; /* Forces top alignment */
+  align-items: flex-start !important;
 }
 
 .about_wrapper ul.nav-pills {
@@ -414,6 +416,7 @@ button {
   align-items: center;
   position: relative;
   flex-wrap: wrap;
+  z-index: 1;
 }
 
 .certification_wrapper .container {
@@ -463,9 +466,16 @@ button {
 
 .certification_wrapper img:hover {
   box-shadow: 0px 2px 70px 0px rgb(253 71 102 / 5%);
-  transform: scale(1.1); /* Zoom effect */
-  opacity: 1; /* Slight transparency */
+  transform: scale(1.1);
+  opacity: 1;
   z-index: 10;
+}
+
+.certifications_wrapper h2,
+.certifications_wrapper img,
+.certifications_wrapper .cert-card {
+  position: relative;
+  z-index: 1;
 }
 
 /* 5 Portfolio */
@@ -518,14 +528,14 @@ button {
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  position: relative; /* Keeps it in place */
+  position: relative;
   z-index: 1;
 }
 
 .portfolio_wrapper img:hover {
   transform: scale(1);
-  z-index: 10; /* Makes sure hovered image is on top */
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5); /* Emphasize hover */
+  z-index: 10;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 /* 6 Contact */
@@ -545,8 +555,8 @@ button {
 
 .contact_wrapper .image-container {
   display: flex;
-  justify-content: center; /* Centers the image */
-  align-items: center; /* Aligns it properly */
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 
@@ -678,4 +688,20 @@ button {
 #about,
 #contact {
   flex: 1;
+}
+
+.typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 5s steps(20, end) infinite alternate-reverse;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
 }
