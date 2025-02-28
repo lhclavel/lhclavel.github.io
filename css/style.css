@@ -10,6 +10,14 @@ html {
   scroll-behavior: smooth;
 }
 
+body,
+html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 :root {
   /* Background Color */
   --primary-color: #fd4766;
@@ -228,8 +236,7 @@ button {
 /* 3 Banner */
 .banner_wrapper {
   width: 100%;
-  height: auto;
-  min-height: 650px;
+  min-height: 100vh;
   background-image: url("../images/bg-img.jpg");
   background-repeat: no-repeat;
   background-position: center center;
@@ -283,9 +290,25 @@ button {
   transform: translateY(0);
 }
 /* 4 About */
+.about_wrapper {
+  display: flex;
+  align-items: flex-start; /* Aligns content to the top */
+  justify-content: space-between; /* Ensures even spacing */
+  flex-wrap: wrap; /* Prevents overlapping */
+}
+
+.about_wrapper .row {
+  align-items: flex-start !important; /* Forces top alignment */
+}
+
 .about_wrapper ul.nav-pills {
-  border: 1px solid var(--gray-color);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: none;
   border-radius: 50px;
+  padding: 5px;
 }
 
 .about_wrapper ul li .nav-link {
@@ -297,6 +320,15 @@ button {
   color: var(--text-gray);
   border: 0;
   transition: 0.3s;
+}
+
+.about_wrapper ul.nav-pills .nav-item {
+  flex: 1;
+  text-align: center;
+}
+
+.about_wrapper ul.nav-pills .nav-link {
+  min-width: 120px; /* Adjust as needed */
 }
 
 .about_wrapper ul li .nav-link.active {
@@ -382,8 +414,6 @@ button {
   align-items: center;
   position: relative;
   flex-wrap: wrap;
-  gap: 20px;
-  position: relative;
 }
 
 .certification_wrapper .container {
@@ -403,19 +433,21 @@ button {
 }
 
 .certification_wrapper img {
-  width: 100%; /* Makes sure the image is responsive */
+  width: 100%;
   max-width: 250px;
-  height: auto; /* Maintains aspect ratio */
-  display: block; /* Removes extra spacing */
+  height: auto;
   object-fit: cover;
   border-radius: 8px;
   margin: 0 auto;
-  box-shadow: 0 4px 8px var(--secondary-color); /* Add a subtle shadow */
+  box-shadow: 0 4px 8px var(--secondary-color);
   transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out,
     opacity 0.3s ease;
   cursor: pointer;
   position: relative;
   z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
 }
 
 .certification_wrapper::before {
@@ -431,7 +463,7 @@ button {
 
 .certification_wrapper img:hover {
   box-shadow: 0px 2px 70px 0px rgb(253 71 102 / 5%);
-  transform: scale(1.2); /* Zoom effect */
+  transform: scale(1.1); /* Zoom effect */
   opacity: 1; /* Slight transparency */
   z-index: 10;
 }
@@ -491,16 +523,17 @@ button {
 }
 
 .portfolio_wrapper img:hover {
-  transform: scale(1.1);
+  transform: scale(1);
   z-index: 10; /* Makes sure hovered image is on top */
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5); /* Emphasize hover */
 }
+
 /* 6 Contact */
 .contact_wrapper {
   background-color: var(--bg-dark-blue);
+  min-height: 100vh;
   padding: 80px 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -510,12 +543,20 @@ button {
   width: 100%;
 }
 
+.contact_wrapper .image-container {
+  display: flex;
+  justify-content: center; /* Centers the image */
+  align-items: center; /* Aligns it properly */
+  width: 100%;
+}
+
 .contact_wrapper img {
   width: 100%;
   max-width: 450px;
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 10px;
+  display: block;
 }
 
 .contact_wrapper .form-control,
@@ -541,18 +582,19 @@ button {
   font-weight: 700;
   color: var(--text-gray);
 }
+
 /* 7 footer */
 .footer_wrapper {
   background-color: var(--secondary-color);
-  padding: 10px 0;
+  padding: 1px 0;
   position: relative;
 }
 
 .footer_wrapper .row {
   display: flex;
-  flex-wrap: wrap; /* Ensures items wrap instead of overlapping */
-  align-items: center; /* Aligns items properly */
-  justify-content: space-between; /* Distributes space evenly */
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .footer_wrapper .footer-logo img {
@@ -575,7 +617,7 @@ button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 0.8rem;
+  padding: 0.2rem;
   background: var(--primary-color);
   border: 0.2rem solid var(--primary-color);
   border-radius: 0.6rem;
@@ -631,4 +673,9 @@ button {
 
 #me {
   color: var(--primary-color);
+}
+
+#about,
+#contact {
+  flex: 1;
 }
