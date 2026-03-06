@@ -1,280 +1,276 @@
-@media (max-width: 991px) {
-  /* Global Section Spacing */
-  section {
-    padding: 50px 0;
-    z-index: 1;
+/* Responsive Styles for Portfolio */
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+  h1 {
+    font-size: 44px;
+    line-height: 55px;
   }
 
-  /* Typography Adjustments */
   h2 {
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 40px;
   }
 
-  h3 {
-    font-size: 20px;
+  .about_wrapper ul li .nav-link {
+    font-size: 14px;
+    min-width: auto;
+    padding: 8px 12px;
+  }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+  h1 {
+    font-size: 36px;
+    line-height: 45px;
   }
 
-  /* Navbar */
-  .header-scrolled {
-    height: auto;
+  h2 {
+    font-size: 34px;
   }
 
   .header_wrapper .menu-navbar-nav {
     text-align: center;
-    background-color: var(--bg-dark-blue);
     padding-bottom: 15px;
   }
 
   .header_wrapper .nav-item .nav-link {
-    margin-top: 15px;
+    margin: 8px 0;
   }
 
-  /* Banner */
   .banner_wrapper {
-    padding: 200px 0;
+    padding: 180px 0 80px 0;
   }
 
-  /* About Section */
   .about_wrapper ul.nav-pills {
-    width: 61%;
-    margin: auto;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 15px;
   }
 
-  /* Contact Section */
-  .contact_wrapper .row {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .about_wrapper ul.nav-pills .nav-link {
+    min-width: max-content;
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .certification_wrapper img {
+    max-width: 100%;
+  }
+
+  .portfolio_wrapper h3 {
+    font-size: 1.5rem;
+  }
+
+  .portfolio_wrapper img {
+    max-width: 100%;
   }
 
   .contact_wrapper img {
-    max-width: 80%;
+    margin-bottom: 30px;
   }
 }
 
-/* Extra Small (XS) - Phones smaller than 480px */
-@media (max-width: 479px) {
-  body {
-    font-size: 14px;
-  }
-  .navbar {
-    flex-direction: column;
-  }
-  .container {
-    padding: 10px;
-  }
-}
-
-@media (max-width: 767px) {
-  /* Typography */
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
   h1 {
-    font-size: 40px;
-    line-height: 48px;
+    font-size: 30px;
+    line-height: 38px;
   }
 
   h2 {
-    font-size: 25px;
+    font-size: 28px;
   }
 
   p {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 24px;
   }
 
-  /* About Section */
+  .banner_wrapper {
+    padding: 150px 0 60px 0;
+    min-height: auto;
+  }
+
+  .banner_wrapper .social-icon {
+    justify-content: center !important;
+    margin-top: 20px;
+  }
+
   .about_wrapper ul.nav-pills {
-    width: 100%;
-    margin: auto;
-    border: 0;
-    display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    overflow-x: auto;
+    white-space: nowrap;
     flex-wrap: nowrap;
   }
 
-  .about_wrapper ul li .nav-link {
-    font-size: 13px;
+  .about_wrapper .tab-content {
+    margin-top: 20px;
   }
 
   .about_wrapper img {
-    max-width: 200px;
+    margin-bottom: 30px;
   }
 
-  /* Contact Section */
-  .contact_wrapper img {
-    max-width: 200px;
-    height: auto;
-  }
-
-  /* Social Icons */
-  .social-icon {
-    justify-content: center !important;
-  }
-
-  .social-icon li a {
-    padding-left: 2px;
-  }
-
-  .col-lg-4 {
-    display: flex;
-    justify-content: center !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .banner_wrapper .container {
-    align-items: flex-start;
-    text-align: left;
-  }
-  .about_wrapper ul.nav-pills {
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
-  }
-
-  .about_wrapper ul li {
-    flex-basis: 100%; /* Make each item take up full width */
-    text-align: center;
-  }
-
-  /* Certifications Section */
   .certification_wrapper {
-    padding: 30px 10px;
-  }
-
-  .certification_wrapper .row {
-    gap: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .certification_wrapper .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
+    min-height: auto;
+    padding: 40px 15px;
   }
 
   .certification_wrapper img {
-    width: 80%;
-    max-width: 200px;
-    height: auto;
-    border-radius: 5px;
-    object-fit: cover;
+    max-width: 100%;
   }
 
-  /* Portfolio Section */
-  .portfolio_wrapper {
-    padding: 30px 10px;
+  .certification_wrapper img:hover {
+    transform: scale(1.03);
   }
 
-  .portfolio_wrapper h3 {
-    font-size: 1.5rem;
+  .portfolio_wrapper .col-lg-6 {
+    margin-bottom: 30px;
   }
 
   .portfolio_wrapper img {
-    max-width: 300px;
+    max-width: 100%;
   }
 
-  /* Contact Section */
   .contact_wrapper {
-    padding: 30px 10px;
+    min-height: auto;
+    padding: 50px 0;
   }
 
-  .contact_wrapper .row {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .footer_wrapper {
+    padding: 20px 0;
+  }
+
+  .footer_wrapper .row > div {
+    margin-bottom: 15px;
     text-align: center;
-  }
-  .contact_wrapper .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contact_wrapper img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px; /* Add some space below the image */
-  }
-
-  /* Portfolio Section */
-  .portfolio_wrapper {
-    padding: 30px 10px;
-  }
-
-  .portfolio_wrapper h3 {
-    font-size: 1.5rem;
-  }
-
-  .portfolio_wrapper img {
-    max-width: 300px;
-  }
-
-  .footer_wrapper .footer-logo img {
-    max-width: 120px; /* Slightly smaller for mobile screens */
-  }
-
-  .footer_wrapper .footer-logo {
-    text-align: center; /* Centers logo on smaller screens */
-    width: 100%;
-    margin-bottom: 10px;
   }
 
   .footer_wrapper .copyright-text {
-    text-align: center; /* Centers text */
-    width: 100%;
-    margin-bottom: 10px;
+    text-align: center !important;
   }
 
   .footer_wrapper .footer-iconTop {
-    text-align: center; /* Centers back-to-top icon */
-    width: 100%;
+    text-align: center !important;
+    margin-top: 15px;
   }
 }
 
-@media (max-width: 1024px) and (min-width: 769px) {
-  .certification_wrapper .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  h1 {
+    font-size: 26px;
+    line-height: 34px;
   }
 
-  .certification_wrapper .col-lg-6 {
-    flex: 0 1 calc(33.33% - 10px);
-    max-width: 300px;
-    text-align: center;
+  h2 {
+    font-size: 24px;
   }
 
-  /* Center third image */
-  .certification_wrapper .col-lg-6:nth-child(3) {
-    margin: 0 auto;
+  h3 {
+    font-size: 18px;
+  }
+
+  h6 {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+
+  .banner_wrapper {
+    padding: 120px 0 50px 0;
+  }
+
+  .main-btn {
+    padding: 8px 20px;
+    font-size: 12px;
+  }
+
+  .about_wrapper ul.nav-pills .nav-link {
+    font-size: 12px;
+    padding: 5px 8px;
   }
 
   .certification_wrapper img {
-    width: 100%;
-    max-width: 280px;
-    height: auto;
+    max-width: 100%;
+  }
+
+  .portfolio_wrapper .col-lg-6 {
+    margin-bottom: 20px;
+  }
+
+  .portfolio_wrapper img {
+    max-width: 100%;
+  }
+
+  .contact_wrapper .call_details label {
+    font-size: 14px;
+  }
+
+  .contact_wrapper .call_details a {
+    font-size: 14px;
+  }
+
+  .footer-iconTop a i {
+    font-size: 1.8rem;
+  }
+
+  .typing {
+    display: block;
+    width: auto !important;
+    white-space: normal;
+    animation: none;
   }
 }
 
-.about_wrapper,
-.banner_wrapper,
-.portfolio_wrapper,
-.contact_wrapper {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Fix for horizontally scrolling nav pills */
+.nav-pills {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--secondary-color);
 }
 
-/* Global Styles */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+.nav-pills::-webkit-scrollbar {
+  height: 4px;
+}
+
+.nav-pills::-webkit-scrollbar-track {
+  background: var(--secondary-color);
+}
+
+.nav-pills::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 20px;
+}
+
+/* Also fix some core issues from the main CSS */
+@media (max-width: 767.98px) {
+  /* Fix for certificates layout */
+  .certification_wrapper .row {
+    justify-content: center;
+  }
+
+  /* Fix for social icons on mobile */
+  .banner_wrapper .social-icon {
+    flex-wrap: wrap;
+  }
+
+  .banner_wrapper .social-icon li {
+    margin: 5px;
+  }
+}
+
+/* Additional navbar mobile fixes */
+@media (max-width: 991.98px) {
+  .header_wrapper .navbar-collapse {
+    background-color: var(--bg-dark-blue);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .header_wrapper .nav-item .main-btn {
+    display: inline-block;
+    margin: 10px auto;
+  }
 }
