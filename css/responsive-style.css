@@ -216,10 +216,8 @@
   }
 
   .typing {
-    display: block;
-    width: auto !important;
-    white-space: normal;
-    animation: none;
+    display: inline-block;
+    white-space: nowrap;
   }
 }
 

@@ -662,16 +662,17 @@ button {
 
 .typing {
   display: inline-block;
-  overflow: hidden;
+  border-right: 3px solid var(--primary-color);
   white-space: nowrap;
-  animation: typing 5s steps(20, end) infinite alternate-reverse;
+  animation: blink 0.7s step-end infinite;
 }
 
-@keyframes typing {
-  0% {
-    width: 0;
-  }
+@keyframes blink {
+  0%,
   100% {
-    width: 100%;
+    border-color: var(--primary-color);
+  }
+  50% {
+    border-color: transparent;
   }
 }

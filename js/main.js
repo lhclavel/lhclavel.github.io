@@ -27,6 +27,36 @@ navBar.forEach(function (a) {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+  // Typing effect
+  const typingEl = document.querySelector(".typing");
+  if (typingEl) {
+    const text = typingEl.textContent;
+    typingEl.textContent = "";
+
+    function typeWriter() {
+      let i = 0;
+      function type() {
+        if (i < text.length) {
+          typingEl.textContent += text.charAt(i);
+          i++;
+          setTimeout(type, 80);
+        } else {
+          setTimeout(erase, 1500);
+        }
+      }
+      function erase() {
+        if (typingEl.textContent.length > 0) {
+          typingEl.textContent = typingEl.textContent.slice(0, -1);
+          setTimeout(erase, 40);
+        } else {
+          setTimeout(typeWriter, 500);
+        }
+      }
+      type();
+    }
+    typeWriter();
+  }
+
   let images = document.querySelectorAll(".certification_wrapper img");
 
   let maxWidth = 0;
