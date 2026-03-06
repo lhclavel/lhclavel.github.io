@@ -237,7 +237,9 @@ button {
 .banner_wrapper {
   width: 100%;
   min-height: 100vh;
-  background-image: url("../images/bg-img.jpg");
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("../images/bg-image.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
