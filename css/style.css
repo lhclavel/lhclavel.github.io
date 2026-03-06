@@ -291,14 +291,12 @@ button {
 }
 /* 4 About */
 .about_wrapper {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  width: 100%;
+  padding: 60px 0;
 }
 
 .about_wrapper .row {
-  align-items: flex-start !important;
+  align-items: center;
 }
 
 .about_wrapper ul.nav-pills {
@@ -323,7 +321,7 @@ button {
 }
 
 .about_wrapper ul.nav-pills .nav-item {
-  flex: 1;
+  flex: 0 0 auto;
   text-align: center;
 }
 
@@ -511,11 +509,7 @@ button {
 /* 6 Contact */
 .contact_wrapper {
   background-color: var(--bg-dark-blue);
-  min-height: 100vh;
   padding: 80px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .contact_wrapper .container {
