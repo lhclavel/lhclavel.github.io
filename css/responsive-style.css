@@ -184,10 +184,6 @@
     text-align: center !important;
   }
 
-  .footer_wrapper .footer-iconTop {
-    text-align: center !important;
-  }
-
   /* Typing text wrap */
   .typing {
     white-space: normal;
@@ -242,11 +238,6 @@
   .contact_wrapper .call_details label,
   .contact_wrapper .call_details a {
     font-size: 13px;
-  }
-
-  /* Footer arrow */
-  .footer-iconTop a i {
-    font-size: 1.5rem;
   }
 }
 

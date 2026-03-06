@@ -587,44 +587,6 @@ button {
   color: var(--primary-color);
 }
 
-.footer-iconTop a {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.15rem;
-  background: var(--primary-color);
-  border: 0.15rem solid var(--primary-color);
-  border-radius: 0.4rem;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.footer-iconTop a::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: var();
-  z-index: -1;
-  transition: 0.5s;
-}
-
-.footer-iconTop a:hover::before {
-  width: 100%;
-}
-
-.footer-iconTop a i {
-  font-size: 1.8rem;
-  color: var(--bg-dark-blue);
-  transition: 0.5s;
-}
-
-.footer-iconTop a:hover i {
-  color: var(--bg-white);
-}
-
 #orgmeup span {
   color: var(--primary-color);
 }
