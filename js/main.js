@@ -56,4 +56,41 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     typeWriter();
   }
+
+  // Image Lightbox
+  const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("imgModalImg");
+  const modalClose = document.querySelector(".img-modal-close");
+
+  const clickableImages = document.querySelectorAll(
+    ".certification_wrapper img, .portfolio_wrapper img",
+  );
+
+  clickableImages.forEach((img) => {
+    img.style.cursor = "pointer";
+    img.addEventListener("click", function () {
+      modal.classList.add("active");
+      modalImg.src = this.src;
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  modalClose.addEventListener("click", function () {
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+  });
+
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      modal.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal.classList.contains("active")) {
+      modal.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+  });
 });
