@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Scroll Reveal Animation
+  // Scroll Reveal Animation (bidirectional)
   const revealElements = document.querySelectorAll(".reveal");
 
   const revealObserver = new IntersectionObserver(
@@ -102,10 +102,12 @@ document.addEventListener("DOMContentLoaded", function () {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("active");
+        } else {
+          entry.target.classList.remove("active");
         }
       });
     },
-    { threshold: 0.15 },
+    { threshold: 0.1 },
   );
 
   revealElements.forEach((el) => revealObserver.observe(el));
