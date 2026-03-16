@@ -140,6 +140,7 @@
   }
 
   .about_wrapper .tab-content {
+    min-height: auto;
     margin-top: 15px;
   }
 
