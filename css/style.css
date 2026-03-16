@@ -169,6 +169,14 @@ button {
 .header_wrapper .navbar-brand {
   max-width: 120px;
   height: auto;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.header_wrapper .navbar-brand h3 {
+  margin-bottom: 0;
+  line-height: 1.2;
 }
 
 .header_wrapper .navbar-brand h3 span {
@@ -569,7 +577,7 @@ button {
 }
 
 .contact_wrapper .container {
-  max-width: 1100px;
+  max-width: 1240px;
   width: 100%;
 }
 
@@ -582,7 +590,7 @@ button {
 
 .contact_wrapper img {
   width: 100%;
-  max-width: 450px;
+  max-width: 520px;
   height: auto;
   object-fit: contain;
   border-radius: 10px;
@@ -608,9 +616,28 @@ button {
 .contact_wrapper .call_details {
   color: var(--text-gray);
 }
+
+.contact_wrapper .call_item {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  align-items: start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.contact_wrapper .call_item label {
+  margin: 0;
+  font-weight: 600;
+}
+
+.contact_wrapper .call_value {
+  min-width: 0;
+}
+
 .contact_wrapper .call_details a {
   font-weight: 700;
   color: var(--text-gray);
+  word-break: break-word;
 }
 
 /* 7 footer */
