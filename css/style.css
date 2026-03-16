@@ -425,6 +425,16 @@ button {
   margin: 0 auto;
 }
 
+.certification_wrapper .certification_intro {
+  max-width: 760px;
+  margin: 12px auto 0;
+  text-align: center;
+}
+
+.certification_wrapper .certification_grid {
+  margin-top: 18px;
+}
+
 .certification_wrapper h2 {
   color: var(--text-white);
 }
@@ -433,16 +443,28 @@ button {
   color: var(--primary-color);
 }
 
+.certification_wrapper .cert-card {
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.certification_wrapper .cert-card:hover {
+  transform: none;
+  border-color: transparent;
+  box-shadow: none;
+}
+
 .certification_wrapper img {
   width: 100%;
   max-width: 100%;
   height: auto;
   object-fit: contain;
   border-radius: 8px;
-  box-shadow: 0 4px 8px var(--secondary-color);
   transition:
     transform 0.4s ease-in-out,
-    box-shadow 0.4s ease-in-out,
     opacity 0.3s ease;
   cursor: pointer;
   display: block;
@@ -460,8 +482,7 @@ button {
 }
 
 .certification_wrapper img:hover {
-  box-shadow: 0px 2px 70px 0px rgb(0 212 255 / 8%);
-  transform: scale(1.05);
+  transform: scale(1.03);
   opacity: 1;
 }
 
