@@ -246,7 +246,7 @@ button {
   width: 100%;
   min-height: 100vh;
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    linear-gradient(rgba(0, 0, 0, 0.205), rgba(0, 0, 0, 0.199)),
     url("../images/bg-image.jpg");
   background-repeat: no-repeat;
   background-position: center center;
