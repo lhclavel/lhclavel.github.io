@@ -249,12 +249,16 @@ button {
     linear-gradient(rgba(0, 0, 0, 0.205), rgba(0, 0, 0, 0.199)),
     url("../images/bg-image.jpg");
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center 15%;
   background-size: cover;
   background-attachment: scroll;
   padding: 200px 0 100px 0;
   position: relative;
   transition: opacity 0.5s ease-in-out;
+}
+
+.banner_wrapper h6 {
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .banner_wrapper .social-icon li {
@@ -274,8 +278,9 @@ button {
   line-height: 30px;
   font-size: 14px;
   display: flex;
-  border: 2px solid var(--text-gray);
-  color: var(--text-gray);
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  color: var(--text-white);
+  background-color: rgba(9, 16, 32, 0.22);
   align-items: center;
   justify-content: center;
   border-radius: 50%;
@@ -295,9 +300,21 @@ button {
 /* Prevent hover effect from staying after click */
 .banner_wrapper .social-icon a:focus {
   background-color: transparent;
-  border-color: var(--text-gray);
-  color: var(--text-gray);
+  border-color: rgba(255, 255, 255, 0.75);
+  color: var(--text-white);
   transform: translateY(0);
+}
+
+.banner_wrapper .main-btn {
+  color: var(--text-white);
+  border-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(9, 16, 32, 0.25);
+}
+
+.banner_wrapper .main-btn:hover {
+  color: var(--bg-dark-blue);
+  background-color: var(--text-white);
+  border-color: var(--text-white);
 }
 /* 4 About */
 .about_wrapper {
@@ -360,6 +377,117 @@ button {
   transition: opacity 0.3s ease;
 }
 
+.about_wrapper .program {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(0, 212, 255, 0.12);
+  border: 1px solid rgba(0, 212, 255, 0.18);
+  color: var(--text-white);
+  text-align: left;
+}
+
+.about_wrapper .skills-note {
+  margin-bottom: 18px;
+  color: var(--text-gray);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.about_wrapper .skill-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.about_wrapper .skill-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px;
+  border-radius: 22px;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.82),
+    rgba(9, 16, 32, 0.64)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.about_wrapper .skill-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--gradient-color);
+}
+
+.about_wrapper .skill-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -30px -40px auto;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.16), transparent 70%);
+  pointer-events: none;
+}
+
+.about_wrapper .skill-card i {
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--text-white);
+  margin-top: 2px;
+  border-radius: 14px;
+  background: rgba(0, 212, 255, 0.16);
+  border: 1px solid rgba(0, 212, 255, 0.18);
+  box-shadow: 0 10px 20px rgba(0, 212, 255, 0.08);
+  position: relative;
+  z-index: 1;
+}
+
+.about_wrapper .skill-card h6 {
+  margin-bottom: 6px;
+  color: var(--text-white);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 15px;
+}
+
+.about_wrapper .skill-card p {
+  margin-bottom: 0;
+  color: var(--text-gray);
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.about_wrapper .skill-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 212, 255, 0.28);
+  box-shadow:
+    0 18px 38px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(0, 212, 255, 0.08);
+}
+
 .about_wrapper .single-progress {
   margin-top: 26px;
   position: relative;
@@ -409,6 +537,12 @@ button {
   font-weight: 500;
   display: block;
   color: var(--text-gray);
+}
+
+@media (max-width: 767.98px) {
+  .about_wrapper .skill-cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 .Me {
