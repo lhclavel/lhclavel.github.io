@@ -9,6 +9,7 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  scroll-padding-top: 96px;
 }
 
 body,
@@ -80,6 +81,7 @@ section {
   padding: 60px 0;
   /* spacing above/below */
   position: relative;
+  scroll-margin-top: 96px;
 }
 
 .main-btn {

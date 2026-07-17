@@ -20,7 +20,7 @@ if (heroSection) {
       root: null,
       threshold: 0,
       rootMargin: "-80px 0px 0px 0px", // buffer so toggle only fires well past the edge
-    }
+    },
   );
   navObserver.observe(heroSection);
 }
@@ -50,14 +50,37 @@ window.addEventListener(
   { passive: true },
 );
 
-
-
 // nav hide
 let navBar = document.querySelectorAll(".nav-link");
 let navCollapse = document.querySelector(".navbar-collapse.collapse");
 navBar.forEach(function (a) {
   a.addEventListener("click", function () {
     navCollapse.classList.remove("show");
+  });
+});
+
+// Smooth scroll for internal links, including navbar items and CTA buttons.
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", function (event) {
+    const targetId = this.getAttribute("href");
+
+    if (!targetId || targetId === "#") {
+      return;
+    }
+
+    const targetElement = document.querySelector(targetId);
+    if (!targetElement) {
+      return;
+    }
+
+    event.preventDefault();
+    targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    if (navCollapse) {
+      navCollapse.classList.remove("show");
+    }
+
+    history.pushState(null, "", targetId);
   });
 });
 
