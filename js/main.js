@@ -1,21 +1,56 @@
-// Header Scroll
+// Header Scroll — switch navbar text color when past the hero
 let nav = document.querySelector(".navbar");
-window.onscroll = function () {
-  if (document.documentElement.scrollTop > 20) {
-    nav.classList.add("header-scrolled");
-  } else {
-    nav.classList.remove("header-scrolled");
+
+// Watch the HERO section: when it leaves view, switch to dark text for ALL sections below
+const heroSection = document.querySelector("#home");
+if (heroSection) {
+  const navObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Hero is visible — white text (on dark photo)
+          nav.classList.remove("header-scrolled");
+        } else {
+          // Hero is gone — dark charcoal text (stays dark for ALL sections below)
+          nav.classList.add("header-scrolled");
+        }
+      });
+    },
+    {
+      root: null,
+      threshold: 0,
+      rootMargin: "-80px 0px 0px 0px", // buffer so toggle only fires well past the edge
+    }
+  );
+  navObserver.observe(heroSection);
+}
+
+let bannerParallaxTicking = false;
+
+function updateBannerParallax() {
+  const scrollY = window.scrollY || document.documentElement.scrollTop;
+  // Parallax: hero bg image moves at 35% scroll speed
+  const banner = document.querySelector(".banner_wrapper");
+  if (banner) {
+    banner.style.backgroundPositionY = `calc(15% + ${scrollY * 0.35}px)`;
   }
+  bannerParallaxTicking = false;
+}
 
-  // Background Fade Effect on Scroll
-  let scrollPosition = window.scrollY;
-  let banner = document.querySelector(".banner_wrapper");
-  let fadeStart = 100;
-  let fadeEnd = 400;
+window.addEventListener(
+  "scroll",
+  () => {
+    if (bannerParallaxTicking) {
+      return;
+    }
 
-  let opacity = 1 - (scrollPosition - fadeStart) / (fadeEnd - fadeStart);
-  banner.style.opacity = Math.max(opacity, 0); //
-};
+    bannerParallaxTicking = true;
+    window.requestAnimationFrame(updateBannerParallax);
+  },
+  { passive: true },
+);
+
+
 
 // nav hide
 let navBar = document.querySelectorAll(".nav-link");
@@ -94,20 +129,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Scroll Reveal Animation (bidirectional)
-  const revealElements = document.querySelectorAll(".reveal");
+  // Scroll Reveal Animation — supports all variants
+  const revealSelectors = ".reveal, .reveal-left, .reveal-right, .reveal-fade";
+  const revealElements = document.querySelectorAll(revealSelectors);
 
   const revealObserver = new IntersectionObserver(
-    (entries) => {
+    (entries, observer) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-        } else {
-          entry.target.classList.remove("active");
+        if (!entry.isIntersecting) {
+          return;
         }
+
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
       });
     },
-    { threshold: 0.1 },
+    { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
   );
 
   revealElements.forEach((el) => revealObserver.observe(el));
