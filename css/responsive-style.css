@@ -166,6 +166,19 @@
     margin-bottom: 30px;
   }
 
+  /* Tools */
+  .tools_wrapper {
+    padding: 40px 15px;
+  }
+
+  .tools_wrapper h2 {
+    font-size: 44px;
+  }
+
+  .tools-image {
+    max-width: 100%;
+  }
+
   /* Contact */
   .contact_wrapper {
     padding: 50px 15px;
@@ -238,6 +251,15 @@
   /* Portfolio */
   .portfolio_wrapper .col-lg-6 {
     margin-bottom: 20px;
+  }
+
+  /* Tools */
+  .tools_wrapper {
+    padding: 35px 15px;
+  }
+
+  .tools_wrapper h2 {
+    font-size: 34px;
   }
 
   /* Contact */
