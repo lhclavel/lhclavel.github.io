@@ -50,14 +50,33 @@ window.addEventListener(
   { passive: true },
 );
 
-// nav hide
-let navBar = document.querySelectorAll(".nav-link");
-let navCollapse = document.querySelector(".navbar-collapse.collapse");
-navBar.forEach(function (a) {
-  a.addEventListener("click", function () {
-    navCollapse.classList.remove("show");
+const navCollapse = document.querySelector(".navbar-collapse.collapse");
+const navLinks = Array.from(
+  document.querySelectorAll('.menu-navbar-nav .nav-link[href^="#"]'),
+);
+
+function setActiveNavLink(targetHash) {
+  if (!targetHash) {
+    return;
+  }
+
+  navLinks.forEach((link) => {
+    link.classList.toggle("active", link.getAttribute("href") === targetHash);
   });
-});
+}
+
+const observedSections = navLinks
+  .map((link) => {
+    const hash = link.getAttribute("href");
+    const section = hash ? document.querySelector(hash) : null;
+
+    if (!hash || !section) {
+      return null;
+    }
+
+    return { hash, section };
+  })
+  .filter(Boolean);
 
 // Smooth scroll for internal links, including navbar items and CTA buttons.
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -76,6 +95,10 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     event.preventDefault();
     targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
 
+    if (this.classList.contains("nav-link")) {
+      setActiveNavLink(targetId);
+    }
+
     if (navCollapse) {
       navCollapse.classList.remove("show");
     }
@@ -83,6 +106,50 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     history.pushState(null, "", targetId);
   });
 });
+
+if (window.location.hash) {
+  setActiveNavLink(window.location.hash);
+} else {
+  setActiveNavLink("#home");
+}
+
+window.addEventListener("hashchange", () => {
+  setActiveNavLink(window.location.hash || "#home");
+});
+
+if (observedSections.length > 0) {
+  let activeScrollTicking = false;
+
+  function updateActiveNavFromScroll() {
+    const navHeight = nav ? nav.offsetHeight : 0;
+    const marker = window.scrollY + navHeight + 24;
+
+    let activeHash = observedSections[0].hash;
+
+    observedSections.forEach((item) => {
+      if (marker >= item.section.offsetTop) {
+        activeHash = item.hash;
+      }
+    });
+
+    setActiveNavLink(activeHash);
+    activeScrollTicking = false;
+  }
+
+  function requestActiveNavUpdate() {
+    if (activeScrollTicking) {
+      return;
+    }
+
+    activeScrollTicking = true;
+    window.requestAnimationFrame(updateActiveNavFromScroll);
+  }
+
+  window.addEventListener("scroll", requestActiveNavUpdate, { passive: true });
+  window.addEventListener("resize", requestActiveNavUpdate);
+  window.addEventListener("load", requestActiveNavUpdate);
+  requestActiveNavUpdate();
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   // Typing effect
