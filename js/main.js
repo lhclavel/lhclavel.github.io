@@ -1,5 +1,10 @@
 // Header Scroll — switch navbar text color when past the hero
 let nav = document.querySelector(".navbar");
+// When true, ignore scroll-driven nav activation (used while smooth-scrolling after a click)
+let suppressScrollActivation = false;
+// Track a clicked target so scroll updates prefer it until we reach the target
+let clickedTargetHash = null;
+let clickedTargetOffset = null;
 
 // Watch the HERO section: when it leaves view, switch to dark text for ALL sections below
 const heroSection = document.querySelector("#home");
@@ -54,6 +59,7 @@ const navCollapse = document.querySelector(".navbar-collapse.collapse");
 const navLinks = Array.from(
   document.querySelectorAll('.menu-navbar-nav .nav-link[href^="#"]'),
 );
+const navList = document.querySelector(".menu-navbar-nav");
 
 function setActiveNavLink(targetHash) {
   if (!targetHash) {
@@ -95,15 +101,47 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     event.preventDefault();
     targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
 
+    // Immediately update active state on click: clear all, then set clicked
+    document.querySelectorAll(".menu-navbar-nav .nav-link").forEach((l) => {
+      l.classList.remove("active");
+      l.classList.remove("forced-active");
+    });
+
     if (this.classList.contains("nav-link")) {
+      this.classList.add("active");
+      // Force the visual active state until scroll settles to avoid flicker
+      this.classList.add("forced-active");
+      if (navList) navList.classList.add("suppressing");
       setActiveNavLink(targetId);
+      // Remove forced-active when we believe the scroll has reached the target
+      setTimeout(() => {
+        this.classList.remove("forced-active");
+        if (navList) navList.classList.remove("suppressing");
+      }, 1400);
     }
 
     if (navCollapse) {
       navCollapse.classList.remove("show");
     }
 
+    // Update URL hash without jumping
     history.pushState(null, "", targetId);
+
+    // Track clicked target and its offset to avoid briefly switching to the previous item
+    clickedTargetHash = targetId;
+    clickedTargetOffset = targetElement.offsetTop;
+    // Safety fallback: clear the clicked target after a short timeout
+    setTimeout(() => {
+      clickedTargetHash = null;
+      clickedTargetOffset = null;
+      // Remove any forced-active classes left behind
+      document
+        .querySelectorAll(".menu-navbar-nav .nav-link.forced-active")
+        .forEach((l) => l.classList.remove("forced-active"));
+      if (navList) navList.classList.remove("suppressing");
+      // Ensure final active link matches the scrolled-to section
+      setActiveNavLink(targetId);
+    }, 1400);
   });
 });
 
@@ -121,8 +159,30 @@ if (observedSections.length > 0) {
   let activeScrollTicking = false;
 
   function updateActiveNavFromScroll() {
+    if (suppressScrollActivation) {
+      activeScrollTicking = false;
+      return;
+    }
     const navHeight = nav ? nav.offsetHeight : 0;
     const marker = window.scrollY + navHeight + 24;
+    // If user clicked a nav link recently, keep that link active until the
+    // scroll marker reaches near the clicked section — this prevents a brief
+    // flicker where the previous section becomes active while scrolling.
+    if (clickedTargetHash && typeof clickedTargetOffset === "number") {
+      // Keep the clicked link active until the scroll marker reaches the
+      // clicked section's top minus the nav height. This avoids briefly
+      // selecting the previous section while the page scrolls toward target.
+      const keepUntil = clickedTargetOffset - (navHeight + 8);
+      if (marker < keepUntil) {
+        setActiveNavLink(clickedTargetHash);
+        activeScrollTicking = false;
+        return;
+      }
+      // Reached (or passed) the clicked section: clear the preference
+      clickedTargetHash = null;
+      clickedTargetOffset = null;
+      if (navList) navList.classList.remove("suppressing");
+    }
 
     let activeHash = observedSections[0].hash;
 

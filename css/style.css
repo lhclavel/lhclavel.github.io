@@ -230,6 +230,22 @@ button {
   color: var(--primary-color);
 }
 
+/* Force-visible active state when set from JS during smooth scroll */
+.menu-navbar-nav .nav-link.forced-active {
+  color: var(--primary-color) !important;
+}
+.menu-navbar-nav .nav-link.forced-active::after {
+  width: 100% !important;
+}
+
+/* While suppressing, hide the normal active underline so only the forced-active shows */
+.menu-navbar-nav.suppressing .nav-link.active::after {
+  width: 0 !important;
+}
+.menu-navbar-nav.suppressing .nav-link.active {
+  color: var(--text-gray) !important;
+}
+
 .header-scrolled {
   position: fixed;
   top: 0;
