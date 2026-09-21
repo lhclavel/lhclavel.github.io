@@ -169,20 +169,18 @@ button {
 }
 
 .header_wrapper .navbar-brand {
-  max-width: 120px;
+  width: 56px;
   height: auto;
   display: flex;
   align-items: center;
   margin: 0;
 }
 
-.header_wrapper .navbar-brand h3 {
-  margin-bottom: 0;
-  line-height: 1.2;
-}
-
-.header_wrapper .navbar-brand h3 span {
-  color: var(--primary-color);
+.header_wrapper .navbar-brand img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .header_wrapper .navbar-toggler {
@@ -257,7 +255,6 @@ button {
 }
 
 /* Text becomes dark charcoal when on white-background sections */
-.header-scrolled .navbar-brand h3,
 .header-scrolled .navbar-toggler,
 .header-scrolled .nav-item .nav-link {
   color: var(--primary-color) !important;
@@ -1185,11 +1182,11 @@ button {
 }
 
 .footer_wrapper .footer-logo img {
-  width: 100%;
-  max-width: 150px;
-  height: auto;
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 50%;
   display: block;
-  margin: 0 auto;
 }
 
 .footer_wrapper .copyright-text p {
