@@ -370,7 +370,8 @@ button {
 
 .about_wrapper h2,
 .services_wrapper h2,
-.skills_wrapper h2 {
+.skills_wrapper h2,
+.experience_wrapper h2 {
   color: var(--bg-dark-blue);
 }
 
@@ -458,6 +459,46 @@ button {
   color: #334155;
   font-size: 18px;
   line-height: 30px;
+}
+
+.experience_wrapper {
+  background-color: #f8fbff;
+}
+
+.experience-list {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.experience-meta {
+  display: block;
+  margin: -4px 0 8px;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.experience_wrapper .skill-card ul {
+  display: inline-block;
+  margin: 0;
+  padding-left: 18px;
+  color: #334155;
+  font-size: 16px;
+  line-height: 27px;
+  text-align: left;
+}
+
+.experience_wrapper .skill-card {
+  justify-content: center;
+}
+
+.experience_wrapper .skill-card > div {
+  text-align: center;
+}
+
+.experience_wrapper .skill-card li {
+  padding-left: 4px;
 }
 
 .about_wrapper .skill-cards {
@@ -608,7 +649,8 @@ button {
 }
 
 .services_wrapper,
-.skills_wrapper {
+.skills_wrapper,
+.experience_wrapper {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -650,6 +692,10 @@ button {
   min-height: 168px;
 }
 
+.experience_wrapper .skill-card {
+  min-height: 168px;
+}
+
 @media (max-width: 767.98px) {
   .about_wrapper .text-lg-start {
     padding-right: 0;
@@ -681,7 +727,8 @@ button {
   }
 
   .services_wrapper,
-  .skills_wrapper {
+  .skills_wrapper,
+  .experience_wrapper {
     min-height: auto;
   }
 
