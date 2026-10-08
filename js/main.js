@@ -215,31 +215,39 @@ document.addEventListener("DOMContentLoaded", function () {
   // Typing effect
   const typingEl = document.querySelector(".typing");
   if (typingEl) {
-    const text = typingEl.textContent;
+    const titles = [
+      "AI Content Creator.",
+      "Video Editor.",
+      "Data Entry Specialist.",
+    ];
+    let titleIndex = 0;
+    let characterIndex = 0;
     typingEl.textContent = "";
 
-    function typeWriter() {
-      let i = 0;
-      function type() {
-        if (i < text.length) {
-          typingEl.textContent += text.charAt(i);
-          i++;
-          setTimeout(type, 80);
-        } else {
-          setTimeout(erase, 1500);
-        }
+    function typeTitle() {
+      const title = titles[titleIndex];
+
+      if (characterIndex < title.length) {
+        typingEl.textContent += title.charAt(characterIndex);
+        characterIndex++;
+        setTimeout(typeTitle, 80);
+      } else {
+        setTimeout(eraseTitle, 1500);
       }
-      function erase() {
-        if (typingEl.textContent.length > 0) {
-          typingEl.textContent = typingEl.textContent.slice(0, -1);
-          setTimeout(erase, 40);
-        } else {
-          setTimeout(typeWriter, 500);
-        }
-      }
-      type();
     }
-    typeWriter();
+
+    function eraseTitle() {
+      if (typingEl.textContent.length > 0) {
+        typingEl.textContent = typingEl.textContent.slice(0, -1);
+        setTimeout(eraseTitle, 40);
+      } else {
+        titleIndex = (titleIndex + 1) % titles.length;
+        characterIndex = 0;
+        setTimeout(typeTitle, 500);
+      }
+    }
+
+    typeTitle();
   }
 
   // Image Lightbox
